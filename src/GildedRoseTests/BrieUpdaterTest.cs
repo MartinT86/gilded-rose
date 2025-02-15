@@ -10,27 +10,27 @@ namespace GildedRoseTests
         public void WhenTimePasses_QualityIncreases()
         {
             var brieItem = new Item { Name = "Aged Brie", SellIn = 1, Quality = 0 };
-            var updatedItem = BrieUpdater.Update(brieItem);
+            BrieUpdater.Update(brieItem);
 
-            Assert.Equal(1, updatedItem.Quality);
+            Assert.Equal(1, brieItem.Quality);
         }
 
         [Fact]
         public void WhenSellIn_QualityIncreases()
         {
             var brieItem = new Item { Name = "Aged Brie", SellIn = 0, Quality = 2 };
-            var updatedItem = BrieUpdater.Update(brieItem);
+            BrieUpdater.Update(brieItem);
 
-            Assert.Equal(4, updatedItem.Quality);
+            Assert.Equal(4, brieItem.Quality);
         }
 
         [Fact]
         public void QualityCapsAt50()
         {
             var brieItem = new Item { Name = "Aged Brie", SellIn = -1, Quality = 49 };
-            var updatedItem = BrieUpdater.Update(brieItem);
+            BrieUpdater.Update(brieItem);
 
-            Assert.Equal(50, updatedItem.Quality);
+            Assert.Equal(50, brieItem.Quality);
         }
     }
 }
