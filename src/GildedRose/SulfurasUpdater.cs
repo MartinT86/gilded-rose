@@ -6,9 +6,9 @@ namespace GildedRoseKata
 {
     public class SulfurasUpdater
     {
-        public static void Update(Item brieItem)
+        public static void Update(Item sulfurasItem)
         {
-            
+            sulfurasItem.Quality = 80;
         }
     }
 }
