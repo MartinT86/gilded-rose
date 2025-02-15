@@ -35,5 +35,15 @@ namespace GildedRoseTests
             app.UpdateQuality();
             Assert.Equal(expectedQuality, Items[0].Quality);
         }
+
+        [Fact]
+        public void beep()
+        {
+            const int expectedQuality = 4;
+            IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 3, Quality = 3 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.Equal(expectedQuality, Items[0].Quality);
+        }
     }
 }
