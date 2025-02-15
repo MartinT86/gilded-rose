@@ -18,12 +18,15 @@ namespace GildedRoseKata
                 .ToList().ForEach(x => BackstagePassUpdater.Update(x));
             Items.Where(x => x.Name == "Sulfuras, Hand of Ragnaros")
                 .ToList().ForEach(x => SulfurasUpdater.Update(x));
+            Items.Where(x => x.Name != "Aged Brie"
+                && x.Name != "Backstage passes to a TAFKAL80ETC concert"
+                && x.Name != "Sulfuras, Hand of Ragnaros"
+                && x.Name != "Conjured Mana Cake")
+                .ToList().ForEach(x => DefaultUpdater.Update(x));
 
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != "Aged Brie" 
-                    && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert"
-                    && Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                if (Items[i].Name == "Conjured Mana Cake")
                 {
                     if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
