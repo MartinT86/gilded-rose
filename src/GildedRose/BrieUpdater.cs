@@ -12,13 +12,15 @@ namespace GildedRoseKata
             {
                 Name = brieItem.Name,
                 SellIn = brieItem.SellIn - 1,
-                Quality = brieItem.Quality + CalculateQualityUpdate(brieItem)
+                Quality = CalculateQualityUpdate(brieItem)
             };
         }
 
         private static int CalculateQualityUpdate(Item brieItem)
         {
-            return brieItem.SellIn > 0 ? 1 : 2;
+            var updateValueBy = brieItem.SellIn > 0 ? 1 : 2;
+            
+            return brieItem.Quality + updateValueBy;
         }
     }
 }
