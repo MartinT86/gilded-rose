@@ -23,5 +23,14 @@ namespace GildedRoseTests
 
             Assert.Equal(4, updatedItem.Quality);
         }
+
+        [Fact]
+        public void QualityCapsAt50()
+        {
+            var brieItem = new Item { Name = "Aged Brie", SellIn = -1, Quality = 49 };
+            var updatedItem = BrieUpdater.Update(brieItem);
+
+            Assert.Equal(50, updatedItem.Quality);
+        }
     }
 }

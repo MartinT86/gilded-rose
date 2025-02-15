@@ -19,8 +19,8 @@ namespace GildedRoseKata
         private static int CalculateQualityUpdate(Item brieItem)
         {
             var updateValueBy = brieItem.SellIn > 0 ? 1 : 2;
-            
-            return brieItem.Quality + updateValueBy;
+            var updatedQuality = brieItem.Quality + updateValueBy;
+            return updatedQuality >= 50 ? 50 : updatedQuality;
         }
     }
 }
