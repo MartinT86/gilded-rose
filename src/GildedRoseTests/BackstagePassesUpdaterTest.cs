@@ -12,7 +12,7 @@ namespace GildedRoseTests
             var backstagePass = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 15,
+                SellIn = 11,
                 Quality = 20
             };
             BackstagePassUpdater.Update(backstagePass);
@@ -26,7 +26,7 @@ namespace GildedRoseTests
             var backstagePass = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
-                SellIn = 9,
+                SellIn = 10,
                 Quality = 20
             };
             BackstagePassUpdater.Update(backstagePass);
@@ -41,6 +41,20 @@ namespace GildedRoseTests
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
                 SellIn = 5,
+                Quality = 20
+            };
+            BackstagePassUpdater.Update(backstagePass);
+
+            Assert.Equal(23, backstagePass.Quality);
+        }
+
+        [Fact]
+        public void WhenDayZero_QualityStillAbove0()
+        {
+            var backstagePass = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = 1,
                 Quality = 20
             };
             BackstagePassUpdater.Update(backstagePass);
