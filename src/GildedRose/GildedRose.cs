@@ -13,18 +13,39 @@ namespace GildedRoseKata
 
         public void UpdateQuality()
         {
-            Items.Where(x => x.Name == "Aged Brie").ToList().ForEach(x => BrieUpdater.Update(x));
-            Items.Where(x => x.Name == "Backstage passes to a TAFKAL80ETC concert")
-                .ToList().ForEach(x => BackstagePassUpdater.Update(x));
-            Items.Where(x => x.Name == "Sulfuras, Hand of Ragnaros")
-                .ToList().ForEach(x => SulfurasUpdater.Update(x));
-            Items.Where(x => x.Name == "Conjured Mana Cake")
-                .ToList().ForEach(x => ConjuredUpdater.Update(x));
-            Items.Where(x => x.Name != "Aged Brie"
-                && x.Name != "Backstage passes to a TAFKAL80ETC concert"
-                && x.Name != "Sulfuras, Hand of Ragnaros"
-                && x.Name != "Conjured Mana Cake")
-                .ToList().ForEach(x => DefaultUpdater.Update(x));
+            Items.Where(IsBrie).ToList().ForEach(BrieUpdater.Update);
+            Items.Where(IsBackstagePass).ToList().ForEach(BackstagePassUpdater.Update);
+            Items.Where(IsSulfuras).ToList().ForEach(SulfurasUpdater.Update);
+            Items.Where(IsConjured).ToList().ForEach(ConjuredUpdater.Update);
+            Items.Where(IsNormal).ToList().ForEach(DefaultUpdater.Update);
+        }
+
+        private bool IsBrie(Item item)
+        {
+            return item.Name == "Aged Brie";
+        }
+
+        private bool IsBackstagePass(Item item)
+        {
+            return item.Name == "Backstage passes to a TAFKAL80ETC concert";
+        }
+
+        private bool IsSulfuras(Item item)
+        {
+            return item.Name == "Sulfuras, Hand of Ragnaros";
+        }
+
+        private bool IsConjured(Item item)
+        {
+            return item.Name == "Conjured Mana Cake";
+        }
+
+        private bool IsNormal(Item item)
+        {
+            return item.Name != "Aged Brie"
+                && item.Name != "Backstage passes to a TAFKAL80ETC concert"
+                && item.Name != "Sulfuras, Hand of Ragnaros"
+                && item.Name != "Conjured Mana Cake";
         }
     }
 }
