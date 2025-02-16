@@ -6,6 +6,7 @@ namespace GildedRoseKata
     {
         public static void Main(string[] args)
         {
+            int requiredDayCount = Int32.Parse(args[0]);
             Console.WriteLine("OMGHAI!");
 
             var itemStore = new ItemStore();
@@ -13,7 +14,7 @@ namespace GildedRoseKata
 
             var app = new GildedRose(Items);
 
-            for (var i = 0; i < 31; i++) // fix ti use args
+            for (var i = 0; i <= requiredDayCount; i++) // fix ti use args
             {
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine("name, sellIn, quality");
