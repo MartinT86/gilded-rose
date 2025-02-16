@@ -8,7 +8,7 @@ namespace GildedRoseKata.Updaters
     {
         public static void Update(Item sulfurasItem)
         {
-            sulfurasItem.Quality = 80;
+            sulfurasItem.Quality = Constants.Qualities.Legendary;
         }
     }
 }

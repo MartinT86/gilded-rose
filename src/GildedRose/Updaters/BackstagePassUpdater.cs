@@ -18,9 +18,11 @@ namespace GildedRoseKata.Updaters
             {
                 return 0;
             }
-            var updateValueBy = backstagePassItem.SellIn < 5 ? 3 : backstagePassItem.SellIn < 10 ? 2 : 1;
+            var updateValueBy = backstagePassItem.SellIn < 5 ? Constants.Qualities.BackstagePassMaxIncrease
+                : backstagePassItem.SellIn < 10 ? Constants.Qualities.BackstagePassMidIncrease
+                : Constants.Qualities.BackstagePassMinIncrease;
             var updatedQuality = backstagePassItem.Quality + updateValueBy;
-            return updatedQuality >= 50 ? 50 : updatedQuality;
+            return updatedQuality >= Constants.Qualities.Maximum ? Constants.Qualities.Maximum : updatedQuality;
         }
     }
 }

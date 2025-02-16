@@ -14,7 +14,9 @@ namespace GildedRoseKata.Updaters
 
         private static int CalculateQualityUpdate(Item defaultItem)
         {
-            var updateValueBy = defaultItem.SellIn < 0 ? 4 : 2;
+            var updateValueBy = defaultItem.SellIn < 0 ?
+                Constants.Qualities.PostSellByDecrease * 2 :
+                Constants.Qualities.PreSellByDecrease * 2;
             int updatedValue = defaultItem.Quality - updateValueBy;
             return updatedValue < 0 ? 0 : updatedValue;
         }
