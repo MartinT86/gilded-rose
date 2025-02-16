@@ -1,8 +1,9 @@
 using Xunit;
 using System.Collections.Generic;
 using GildedRoseKata;
+using GildedRoseKata.Updaters;
 
-namespace GildedRoseTests
+namespace GildedRoseTests.UpdaterTests
 {
     public class SulfurasUpdaterTest
     {
